@@ -12,7 +12,5 @@ func main() {
 
 	mvc.New(app.Party("/")).Handle(new(controllers.CardController))
 
-	app.StaticWeb("/public", "./public")
-
 	app.Listen(":8080")
 }
