@@ -1,20 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Card Display</title>
+    <title>Product Display</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <link rel="stylesheet" href="/public/style.css">
 </head>
+
 <body>
-    <div class="card-container">
-        {{range .cards}}
-        <div class="card">
-            <h2>{{.Title}}</h2>
-            <p>{{.Content}}</p>
+    <section class="section">
+        <div class="container">
+            <h1 class="title has-text-centered">Product Showcase</h1>
+            <div class="columns is-multiline">
+                {{range .products}}
+                <div class="column is-one-third">
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">{{.Name}}</p>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                {{.Description}}<br>
+                                <strong>{{.Price}}</strong>
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <a href="#" class="card-footer-item">Add to Cart</a>
+                        </footer>
+                    </div>
+                </div>
+                {{end}}
+            </div>
         </div>
-        {{end}}
-    </div>
+    </section>
     <script type="module" src="/public/index.js"></script>
 </body>
+
 </html>

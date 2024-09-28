@@ -1,0 +1,6 @@
+CREATE DATABASE "wgetcard"
+WITH
+  OWNER = "pg_database_owner"
+  ENCODING = 'UTF8'
+;
+
