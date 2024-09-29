@@ -19,3 +19,15 @@ func (c *ProductController) Get() mvc.Result {
 		Data: iris.Map{"products": products},
 	}
 }
+
+func (c *ProductController) GetItemBy(id int) mvc.Result {
+	var product models.Product
+	if err := c.DB.First(&product, id).Error; err != nil {
+		return mvc.Response{Code: 404} // 如果没有找到商品返回404错误
+	}
+
+	return mvc.View{
+		Name: "item.html",
+		Data: iris.Map{"product": product},
+	}
+}

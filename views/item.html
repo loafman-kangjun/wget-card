@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.product.Name}}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link rel="stylesheet" href="/public/style.css">
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">{{.product.Name}}</h1>
+            <div class="content">
+                <p>{{.product.Description}}</p>
+                <p><strong>Price: {{.product.Price}}</strong></p>
+                <button class="button is-primary">购买</button> <!-- 购买按钮 -->
+            </div>
+        </div>
+    </section>
+    <script type="module" src="/public/index.js"></script>
+</body>
+
+</html>

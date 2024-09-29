@@ -26,7 +26,8 @@ func main() {
 	productController := new(controllers.ProductController)
 	productController.DB = db
 
-	mvc.New(app.Party("/")).Handle(productController)
+	mvcApp := mvc.New(app.Party("/"))
+	mvcApp.Handle(productController)
 
 	// Serve static files
 	app.HandleDir("/public", "./public")
