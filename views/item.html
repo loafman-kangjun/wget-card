@@ -16,7 +16,19 @@
             <div class="content">
                 <p>{{.product.Description}}</p>
                 <p><strong>Price: {{.product.Price}}</strong></p>
-                <button class="button is-primary">购买</button> <!-- 购买按钮 -->
+
+                <!-- 订单提交表单 -->
+                <form action="/item/{{.product.ID}}" method="post">
+                    <div class="field">
+                        <label class="label">Email</label>
+                        <div class="control">
+                            <input class="input" type="email" name="email" placeholder="Enter your email">
+                        </div>
+                    </div>
+                    <div class="control">
+                        <button class="button is-primary" type="submit">购买</button>
+                    </div>
+                </form>
             </div>
         </div>
     </section>

@@ -32,5 +32,9 @@ func main() {
 	// Serve static files
 	app.HandleDir("/public", "./public")
 
+	for _, route := range app.GetRoutes() {
+		log.Println("Registered Route:", route.Method, route.Path)
+	}
+
 	app.Listen(":8080")
 }

@@ -13,6 +13,12 @@ type Product struct {
 	Price       string `gorm:"not null"`
 }
 
+type Order struct {
+	ID        uint   `gorm:"primaryKey"`
+	ProductID uint   `gorm:"not null"`
+	Email     string `gorm:"not null"`
+}
+
 func ConnectDatabase() (*gorm.DB, error) {
 	dsn := "user=postgres password=123456 dbname=wgetcard host=localhost port=5432 sslmode=disable"
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
@@ -35,5 +41,5 @@ func ConnectDatabase() (*gorm.DB, error) {
 
 // Migrate the schema
 func Migrate(db *gorm.DB) {
-	db.AutoMigrate(&Product{})
+	db.AutoMigrate(&Product{}, &Order{})
 }

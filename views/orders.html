@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN"> <!-- 修改为中文语言 -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查询订单</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link rel="stylesheet" href="/public/style.css">
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">订单列表</h1>
+            <div class="content">
+                {{if .message}}
+                <p>{{.message}}</p> <!-- 显示错误消息 -->
+                {{else if .orders}}
+                <ul>
+                    {{range .orders}}
+                    <li>订单号: {{.ID}}, 商品ID: {{.ProductID}}, 邮箱: {{.Email}}</li>
+                    {{end}}
+                </ul>
+                {{end}}
+            </div>
+        </div>
+    </section>
+    <script type="module" src="/public/index.js"></script>
+</body>
+
+</html>
